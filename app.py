@@ -14,7 +14,7 @@ st.set_page_config(layout="wide", page_title="Bird Population & Climate Impact")
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_excel("E:\PROJECTS\ICCOB\Occurance_and_climatedata_of_birds.xlsx")
+    df = pd.read_excel("Occurance_and_climatedata_of_birds.xlsx")
     return df
 
 df = load_data()
@@ -25,11 +25,11 @@ st.title("🐦 Impact of Climate Change on Bird Populations")
 st.sidebar.title("🌍 Impact of Climate Change on Birds")
 st.sidebar.markdown("Download or explore the dataset and begin your analysis.")
 
-with open("E:\PROJECTS\ICCOB\Occurance_and_climatedata_of_birds.xlsx", "rb") as file:
+with open("Occurance_and_climatedata_of_birds.xlsx", "rb") as file:
     st.sidebar.download_button(
         label="📥 Download Dataset",
         data=file,
-        file_name="E:\PROJECTS\ICCOB\Occurance_and_climatedata_of_birds.xlsx",
+        file_name="Occurance_and_climatedata_of_birds.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
