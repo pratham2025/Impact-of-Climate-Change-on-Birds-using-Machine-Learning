@@ -14,7 +14,7 @@ st.set_page_config(layout="wide", page_title="Bird Population & Climate Impact")
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_excel("Occurance & Climate Data.xlsx")
+    df = pd.read_excel("E:\PROJECTS\ICCOB\Occurance_and_climatedata_of_birds.xlsx")
     return df
 
 df = load_data()
@@ -25,11 +25,11 @@ st.title("🐦 Impact of Climate Change on Bird Populations")
 st.sidebar.title("🌍 Impact of Climate Change on Birds")
 st.sidebar.markdown("Download or explore the dataset and begin your analysis.")
 
-with open("Occurance & Climate Data.xlsx", "rb") as file:
+with open("E:\PROJECTS\ICCOB\Occurance_and_climatedata_of_birds.xlsx", "rb") as file:
     st.sidebar.download_button(
         label="📥 Download Dataset",
         data=file,
-        file_name="Occurance & Climate Data.xlsx",
+        file_name="E:\PROJECTS\ICCOB\Occurance_and_climatedata_of_birds.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
@@ -88,7 +88,7 @@ st.pyplot(fig3)
 st.markdown("### 📈 Predict Population Under New Climate Scenario")
 
 col1, col2, col3 = st.columns(3)
-temp_input = col1.slider("Temperature (°C)", float(df["Temperature"].min()), float(df["Temperature"].max()), 25.0)
+temp_input = col1.slider("Temperature (°C)", float(df["Temperature"].min()), 100.0, 25.0)
 precip_input = col2.slider("Precipitation (mm)", float(df["Precipitation"].min()), float(df["Precipitation"].max()), 1500.0)
 shift_input = col3.slider("Shift Distance (km)", float(df["Shift_km"].min()), float(df["Shift_km"].max()), 10.0)
 
